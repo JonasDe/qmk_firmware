@@ -1,3 +1,53 @@
+# Redox Specific install instructions
+
+## Flashing redix on windows
+
+### Prerequisites
+
+1. Download this utility https://msys.qmk.fm/
+2. Start the app (will be a CMD window)
+3. Follow setup instruction (`qmk setup`)
+
+### Flashing
+With prerequisites we now have QMK CLI. Time to flash.
+Flashing procedure is done by attaching USB cable to computer, and then taking a needle and press the reset button.
+Make sure it's a DATA-enabled USB cable.
+
+For Redox split keyboard, we may have to flash each side separately to set up master-slave relationship.
+
+#### Option 1 - flash each split side separately
+
+Split right
+```
+qmk flash -kb redox -km default -bl avrdude-split-right
+```
+Split left
+```
+qmk flash -kb redox -km default -bl avrdude-split-left
+```
+
+#### Option 2 - flash both sides with same bootloader
+
+```
+qmk flash -kb redox -km default -bl avrdude
+```
+
+6. This should be profit! 
+
+
+### Reloading new layouts
+
+
+## Flashing on MacOS (tbd)
+
+<Placeholder>
+
+
+
+Original Redox documentation below
+---
+
+
 # Quantum Mechanical Keyboard Firmware
 
 [![Current Version](https://img.shields.io/github/tag/qmk/qmk_firmware.svg)](https://github.com/qmk/qmk_firmware/tags)
